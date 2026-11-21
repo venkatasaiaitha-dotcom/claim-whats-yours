@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claim What's Yours</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Claim What's Yours</h1>
+    <p>Telangana student scholarships: tell us your situation in your own words.</p>
+  </header>
+
+  <div class="notice">
+    Results say <strong>"likely eligible"</strong>, never guaranteed. Always confirm on the official portal.
+    Please do <strong>not</strong> type Aadhaar or other ID numbers here. Demo uses sample data and sample profiles only.
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-view="find">Find schemes</button>
+    <button class="tab" data-view="track" id="tab-track">My tracker</button>
+    <button class="tab" data-view="admin">Admin: scheme rules</button>
+  </nav>
+
+  <main>
+    <section id="view-find">
+      <div class="panel">
+        <label for="story"><strong>Describe your situation</strong> (English, తెలుగు or हिन्दी)</label>
+        <textarea id="story" rows="4" placeholder="Example: I am a BC girl from Warangal studying B.Tech. My father is a farmer and our family income is about 1.5 lakh a year."></textarea>
+        <div class="row">
+          <select id="lang" aria-label="Speech language">
+            <option value="en-IN">Speak in English</option>
+            <option value="te-IN">Speak in Telugu</option>
+            <option value="hi-IN">Speak in Hindi</option>
+          </select>
+          <button class="btn" id="mic" type="button">🎤 Speak</button>
+          <button class="btn primary" id="analyse" type="button">Find my schemes</button>
+        </div>
+        <div class="row samples">
+          <span>Try a sample profile:</span>
+          <button class="btn small" data-sample="0">BC student (English)</button>
+          <button class="btn small" data-sample="1">SC student (తెలుగు)</button>
+          <button class="btn small" data-sample="2">Minority student (हिन्दी)</button>
+        </div>
+        <p id="warn" class="warn" hidden></p>
+      </div>
+
+      <div id="understood" class="panel" hidden></div>
+      <div id="question" class="panel question" hidden></div>
+      <div id="results"></div>
+    </section>
+
+    <section id="view-track" hidden></section>
+    <section id="view-admin" hidden></section>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="schemes-data.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
